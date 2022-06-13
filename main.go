@@ -4,8 +4,10 @@ import (
 	"Shopify-Challenge/configs"
 	"Shopify-Challenge/routes"
 	"fmt"
+	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -17,6 +19,7 @@ func main() {
 
 	//routes
 	routes.ItemRoute(router)
+	port := os.Getenv("PORT")
 
-	router.Run("0.0.0.0:3000")
+	router.Run(":"+ port )
 }
