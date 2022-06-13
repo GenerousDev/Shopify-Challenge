@@ -5,7 +5,6 @@ import (
 	"Shopify-Challenge/routes"
 	"fmt"
 	"os"
-	"time"
 
 	"github.com/gin-gonic/gin"
 )
