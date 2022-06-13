@@ -1,0 +1,56 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>Django Tailwind</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		 integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		{% tailwind_css %}
+	</head>
+
+	<body >
+		<div class="container flex justify-center mx-auto">
+			<div class="flex flex-col">
+				<div class="w-full">
+					<div class="border-b border-gray-200 shadow">
+				<table  class="divide-y divide-gray-300">
+					<thead class="bg-gray-50">
+						<tr>
+							<th class="px-6 py-2 text-xs text-gray-500">Id</th>
+							<th class="px-6 py-2 text-xs text-gray-500">ItemName </th>
+							<th class="px-6 py-2 text-xs text-gray-500">Location</th>
+							<th class="px-6 py-2 text-xs text-gray-500">ItemPrice</th>
+							<th class="px-6 py-2 text-xs text-gray-500">ItemBrand</th>
+							<th class="px-6 py-2 text-xs text-gray-500">ItemCategory</th>
+							<th class="px-6 py-2 text-xs text-gray-500">Update</th>
+							<th class="px-6 py-2 text-xs text-gray-500">Delete</th>
+						</tr>
+					</thead>
+					<tbody class="bg-white divide-y divide-gray-300">
+						{{ range $key, $value := .payload }}
+						<tr class="whitespace-nowrap">
+							<td class="px-6 py-4 text-sm text-gray-500">
+								<div class="px-4 py-1 text-sm text-blue-400 focus:ring-2 hover:bg-blue-200 bg-gray-100 rounded-full">{{$key}}</a>
+							</td>
+							<td class="px-6 py-4"><div class="text-sm text-gray-900">{{$value.ItemName}}</div>
+							</td>
+							<td class="px-6 py-4"><div class="text-sm text-gray-500">{{$value.Location}}</div></td>
+							<td class="px-6 py-4 text-sm text-gray-500">{{$value.ItemPrice }}</td>
+							<td class="px-6 py-4 text-sm text-gray-500">{{$value.ItemBrand}}</td>
+							<td class="px-6 py-4 text-sm text-gray-500">{{$value.ItemCategory}}</td>
+							<td class="px-6 py-4"><a href="/item/edit/{{$value.Id}}" class="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full">Update</a></td>
+							<td class="px-6 py-4"><a href="/item/delete/{{$value.Id}}" class="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full">Delete</a></td>
+						</tr>
+						{{end}}
+					</tbody>
+				</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div><a href="create">Create a new contact</a></div>
+	</body>
+</html>
