@@ -2,7 +2,6 @@ package main
 
 import (
 	"Shopify-Challenge/configs"
-	"Shopify-Challenge/routes"
 
 	"fmt"
 
@@ -19,8 +18,8 @@ func main() {
 	fmt.Println("Database connected")
 
 //routes
-		routes.temRoute(router)
+	routes.ItemRoute(router)
 
-router.Run("localhost:3030")
-	fmt.Println("Server running n port 3030")
+	router.Run("localhost:3030")
+	fmt.Println("Server running on port 3030")
 }
