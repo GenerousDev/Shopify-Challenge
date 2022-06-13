@@ -32,10 +32,10 @@ func main() {
 
 	router := gin.Default()
 	configs.ConnectDB()
-
+	router.Use(CORSMiddleware())
 	//routes
 	routes.ItemRoute(router)
-	router.Use(CORSMiddleware())
+	
 	port := os.Getenv("PORT")
 
 	router.Run(":" + port)
