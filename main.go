@@ -2,8 +2,8 @@ package main
 
 import (
 	"Shopify-Challenge/configs"
-"Shopify-Challenge/routes"
-"fmt"
+	"Shopify-Challenge/routes"
+	"fmt"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,7 +13,6 @@ func main() {
 fmt.Println("Entry Poin")
 
 router := gin.Default()
-
 	configs.ConnectDB()
 fmt.Println("Database connected")
 	
