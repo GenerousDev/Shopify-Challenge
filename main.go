@@ -2,23 +2,23 @@ package main
 
 import (
 	"Shopify-Challenge/configs"
-
-	"fmt"
+"Shopify-Challenge/routes"
+"fmt"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 
-	fmt.Println("Entry Poin")
+fmt.Println("Entry Poin")
 
-	router := gin.Default()
+router := gin.Default()
 
 	configs.ConnectDB()
-	fmt.Println("Database connected")
-
+fmt.Println("Database connected")
+	
 //routes
-	routes.ItemRoute(router)
+routes.ItemRoute(router)
 
 	router.Run("localhost:3030")
 	fmt.Println("Server running on port 3030")
